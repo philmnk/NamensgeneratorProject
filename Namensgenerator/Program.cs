@@ -19,23 +19,25 @@
 
     static bool ShowFirstnames()
     {
-        Console.WriteLine("Are you male or female?");
+        string sex = "asdf";
         do
         {
-            string gender = Console.ReadLine();
+            Console.WriteLine("Are you male or female?");
+            sex = Console.ReadLine();
         }
-        while (gender != "male" && gender != "female"):
+        while (sex != "male" && sex != "female");
 
-        if (gender == "male")
+        bool male = true;
+        if (sex == "male")
         {
-            bool male = true;
+            male = true;
+            Console.WriteLine("Serkan");
         }
         else
         {
-            bool male = false;
+            male = false;
+            Console.WriteLine("Alex");
         }
-
-        
         return male;
     }
 }
