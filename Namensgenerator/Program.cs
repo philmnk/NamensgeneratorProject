@@ -86,14 +86,16 @@
         if (male == true)
         {
             Console.WriteLine("Here are names with two male first names and a last name.");
-            foreach (string lastname in lastNames)
+            foreach (string lastName in lastNames)
             {
-                while(firstNam )
                 foreach (string firstName2 in firstNamesMale)
                 {
                     foreach (string firstName in firstNamesMale)
                     {
-                        Console.WriteLine(firstName + " " + firstName2 + " " + lastNames);
+                        if(firstName != firstName2)
+                        {
+                            Console.WriteLine(firstName + " " + firstName2 + " " + lastName);
+                        }
                     }
                 }
             }
@@ -101,13 +103,16 @@
         else
         {
             Console.WriteLine("Here are names with two female first names and a last name.");
-            foreach (string lastname in lastNames)
+            foreach (string lastName in lastNames)
             {
                 foreach (string firstName2 in firstNamesFemale)
                 {
                     foreach (string firstName in firstNamesFemale)
                     {
-                        Console.WriteLine(firstName + " " + firstName2 + " " + lastNames);
+                        if (firstName != firstName2)
+                        {
+                            Console.WriteLine(firstName + " " + firstName2 + " " + lastName);
+                        }
                     }
                 }
             }
