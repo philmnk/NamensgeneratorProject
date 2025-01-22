@@ -16,8 +16,10 @@
 
         bool male = ShowFirstNamesBasedOfSex();
         ShowCombinationOfFirstAndLastName(male);
+        ShowNamesWithTwoFirstName(male);
     }
 
+    //A& c)
     static bool ShowFirstNamesBasedOfSex()
     {
         string sex = "asdf";
@@ -51,25 +53,62 @@
         return male;
     }
 
+    //A6 d)
     static void ShowCombinationOfFirstAndLastName(bool male)
     {
         if(male == true)
         {
+            Console.WriteLine("\nHere are the last names with a variaty of male first names.");
             foreach (string lastname in lastNames)
             {
                 for (int i = 0; i < firstNamesMale.Length; i++)
                 {
-                    Console.WriteLine(firstNamesMale[i] + lastname);
+                    Console.WriteLine(firstNamesMale[i] + " " + lastname);
                 } 
             }
         }
         else
         {
+            Console.WriteLine("\nHere are the last names with a variaty of female first names.");
             foreach (string lastname in lastNames)
             {
                 for (int i = 0; i < firstNamesFemale.Length; i++)
                 {
-                    Console.WriteLine(firstNamesFemale[i] + lastname);
+                    Console.WriteLine(firstNamesFemale[i] + " " + lastname);
+                }
+            }
+        }
+    }
+
+    //A6 e)
+    static void ShowNamesWithTwoFirstName(bool male)
+    {
+        if (male == true)
+        {
+            Console.WriteLine("Here are names with two male first names and a last name.");
+            foreach (string lastname in lastNames)
+            {
+                while(firstNam )
+                foreach (string firstName2 in firstNamesMale)
+                {
+                    foreach (string firstName in firstNamesMale)
+                    {
+                        Console.WriteLine(firstName + " " + firstName2 + " " + lastNames);
+                    }
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Here are names with two female first names and a last name.");
+            foreach (string lastname in lastNames)
+            {
+                foreach (string firstName2 in firstNamesFemale)
+                {
+                    foreach (string firstName in firstNamesFemale)
+                    {
+                        Console.WriteLine(firstName + " " + firstName2 + " " + lastNames);
+                    }
                 }
             }
         }
