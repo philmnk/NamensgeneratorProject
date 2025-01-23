@@ -4,6 +4,7 @@
     static string[] firstNamesFemale = { "Aeloria", "Lyrielle", "Sylvara", "Elunara", "Seraphina", "Nymira", "Thalindra", "Isoldea", "Veylana", "Celyndra" };
     static string[] firstNamesMale = { "Kaelion", "Darakor", "Fenrik", "Thalion", "Ravendryn", "Orinvar", "Brynthar", "Zarathos", "Eryndor" };
     static string[] lastNames = { "Dämmerhain", "Nachtklinge", "Silbersturm", "Morgentau", "Eisenschlag", "Dunkelquell", "Flammenfels", "Sturmschatten" };
+    static Random randomGenerator = new Random();
 
     static void Main(string[] args)
     {
@@ -17,9 +18,10 @@
         bool male = ShowFirstNamesBasedOfSex();
         ShowCombinationOfFirstAndLastName(male);
         ShowNamesWithTwoFirstName(male);
+        AskIfRandomNames(male);
     }
 
-    //A& c)
+    //A6 c)
     static bool ShowFirstNamesBasedOfSex()
     {
         string sex = "asdf";
@@ -85,7 +87,7 @@
     {
         if (male == true)
         {
-            Console.WriteLine("Here are names with two male first names and a last name.");
+            Console.WriteLine("\nHere are names with two male first names and a last name.");
             foreach (string lastName in lastNames)
             {
                 foreach (string firstName2 in firstNamesMale)
@@ -102,7 +104,7 @@
         }
         else
         {
-            Console.WriteLine("Here are names with two female first names and a last name.");
+            Console.WriteLine("\nHere are names with two female first names and a last name.");
             foreach (string lastName in lastNames)
             {
                 foreach (string firstName2 in firstNamesFemale)
@@ -120,5 +122,47 @@
     }
 
     //A8 a)
+    static void AskIfRandomNames(bool male)
+    {
+        string option = "asdf";
+        while(option != "Yes" && option != "No")
+        {
+            Console.WriteLine("\nWould you like to generate a random name?");
+            Console.WriteLine("[Yes] or [No]");
+            option = Console.ReadLine();
+            if (option == "Yes")
+            {
+                int amount = GetNumberOfRandomNames(male);
+                ShowRandomNames(male, amount);
+            }
+            else
+            {
+                Console.WriteLine("Thanks for giving RANDOM NAME GENERATOR a shot!");
+                return;
+            }
+        }
+    }
 
+    //A8 b)
+    static int GetNumberOfRandomNames(bool male)
+    {
+        int amount = 0;
+        Console.WriteLine("How many random names do you want to generate?");
+        amount = Convert.ToInt32(Console.ReadLine());
+        return amount;
+    }
+
+    static void ShowRandomNames(bool male, int amount)
+    {
+        if (male)
+        {
+            for (int i = 0; i < amount; i++)
+                Console.WriteLine(firstNamesMale[randomGenerator.Next(0, firstNamesMale.Length)] + " " + lastNames[randomGenerator.Next(0, lastNames.Length)]);
+        }
+        else
+        {
+            for (int i = 0; i < amount; i++)
+            Console.WriteLine(firstNamesFemale[randomGenerator.Next(0, firstNamesFemale.Length)] + " " + lastNames[randomGenerator.Next(0, lastNames.Length)]);
+        }
+    }
 }
